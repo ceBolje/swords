@@ -5,10 +5,10 @@ import { useSwords } from '../useSwords';
 
 const useStyles = makeStyles({
     cRed: {
-        background: red[500],
+        backgroundColor: red[500],
     },
     cGreen: {
-        background: green[500],
+        backgroundColor: green[500],
     },
     tRed: {
         color: red[500],
@@ -17,7 +17,9 @@ const useStyles = makeStyles({
         color: green[500],
     },
     cButton: {
-        marginRight: '5px',
+        margin: '5px auto',
+        display: 'block',
+        minWidth: '190px',
     },
     cContainer: {
         textAlign: 'center',
@@ -30,14 +32,14 @@ export const Swords = () => {
 
     return (
         <Box className={classes.cContainer}>
-            <Box mt={10}>
+            <Box mt={7}>
                 <Typography color="secondary" variant="h3" noWrap>
                     {selected.w}
                 </Typography>
                 <Typography color="primary" variant="h6" noWrap>
                     [ {selected.e} ] en
                 </Typography>
-                <Box my={5}>
+                <Box mt={5}>
                     {selected.v.map((key, i) => (
                         <Button
                             key={key.cid}
@@ -45,18 +47,18 @@ export const Swords = () => {
                                 handleClick(key.cid);
                             }}
                             variant="outlined"
-                            className={`${
+                            className={
                                 key.isClicked && !key.isCorrect
-                                    ? classes.cRed
+                                    ? `${classes.cRed} ${classes.cButton}`
                                     : key.isClicked && key.isCorrect
-                                    ? classes.cGreen
+                                    ? `${classes.cGreen} ${classes.cButton}`
                                     : ''
-                            } ${classes.cButton}`}>
+                            }>
                             {key.w}
                         </Button>
                     ))}
                 </Box>
-                <Box my={2}>
+                <Box mt={5}>
                     <span className={classes.tGreen}>{score.correct}</span> /
                     <span className={classes.tRed}>{score.error}</span> /
                     <span className="">{score.percent}%</span>

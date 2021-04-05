@@ -96,10 +96,12 @@ export const useSwords = () => {
         return rand !== n1 && rand !== n2 ? rand : getRand(max, n1, n2);
     };
 
+    const dataLen = data.length;
+
     const getData = (selectedId: number) => {
-        const id: number = getRand(data.length, selectedId);
-        const id1: number = getRand(data.length, id);
-        const id2: number = getRand(data.length, id, id1);
+        const id: number = getRand(dataLen, selectedId);
+        const id1: number = getRand(dataLen, id);
+        const id2: number = getRand(dataLen, id, id1);
 
         const newSelect: wordState = {
             id: id,

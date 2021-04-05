@@ -128,11 +128,11 @@ export default function Header() {
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button key="1" component="a" href="/thousand">
+                    <ListItem button key="1" component="a" href="/swords">
                         <ListItemIcon>
                             <InboxIcon />
                         </ListItemIcon>
-                        <ListItemText primary="1000" />
+                        <ListItemText primary="3000" />
                     </ListItem>
                 </List>
             </Drawer>
