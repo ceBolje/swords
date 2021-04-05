@@ -52,7 +52,7 @@ export const Swords = () => {
                                     ? `${classes.cRed} ${classes.cButton}`
                                     : key.isClicked && key.isCorrect
                                     ? `${classes.cGreen} ${classes.cButton}`
-                                    : ''
+                                    : `${classes.cButton}`
                             }>
                             {key.w}
                         </Button>
