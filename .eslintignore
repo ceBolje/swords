@@ -7,9 +7,6 @@ coverage
 # mock
 mock
 
-# locales
-src/client/themes/*/locales/*.json
-
 # production
 build
 lib
