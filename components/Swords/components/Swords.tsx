@@ -6,9 +6,15 @@ import { useSwords } from '../useSwords';
 const useStyles = makeStyles({
     cRed: {
         backgroundColor: red[500],
+        '&:hover, &:focus': {
+            backgroundColor: red[500],
+        },
     },
     cGreen: {
         backgroundColor: green[500],
+        '&:hover, &:focus': {
+            backgroundColor: green[500],
+        },
     },
     tRed: {
         color: red[500],
@@ -31,38 +37,36 @@ export const Swords = () => {
     const classes = useStyles();
 
     return (
-        <Box className={classes.cContainer}>
+        <Box mt={5} className={classes.cContainer}>
+            <Typography color="secondary" variant="h3" noWrap>
+                {selected.w}
+            </Typography>
+            <Typography color="primary" variant="h6" noWrap>
+                [ {selected.e} ] en
+            </Typography>
             <Box mt={7}>
-                <Typography color="secondary" variant="h3" noWrap>
-                    {selected.w}
-                </Typography>
-                <Typography color="primary" variant="h6" noWrap>
-                    [ {selected.e} ] en
-                </Typography>
-                <Box mt={5}>
-                    {selected.v.map((key, i) => (
-                        <Button
-                            key={key.cid}
-                            onClick={() => {
-                                handleClick(key.cid);
-                            }}
-                            variant="outlined"
-                            className={
-                                key.isClicked && !key.isCorrect
-                                    ? `${classes.cRed} ${classes.cButton}`
-                                    : key.isClicked && key.isCorrect
-                                    ? `${classes.cGreen} ${classes.cButton}`
-                                    : `${classes.cButton}`
-                            }>
-                            {key.w}
-                        </Button>
-                    ))}
-                </Box>
-                <Box mt={5}>
-                    <span className={classes.tGreen}>{score.correct}</span> /
-                    <span className={classes.tRed}>{score.error}</span> /
-                    <span className="">{score.percent}%</span>
-                </Box>
+                {selected.v.map((key, i) => (
+                    <Button
+                        key={key.cid}
+                        onClick={() => {
+                            handleClick(key.cid);
+                        }}
+                        variant="outlined"
+                        className={
+                            key.isClicked && !key.isCorrect
+                                ? `${classes.cRed} ${classes.cButton}`
+                                : key.isClicked && key.isCorrect
+                                ? `${classes.cGreen} ${classes.cButton}`
+                                : `${classes.cButton}`
+                        }>
+                        {key.w}
+                    </Button>
+                ))}
+            </Box>
+            <Box mt={5}>
+                <span className={classes.tGreen}>{score.correct}</span> /
+                <span className={classes.tRed}>{score.error}</span> /
+                <span className="">{score.percent}%</span>
             </Box>
         </Box>
     );

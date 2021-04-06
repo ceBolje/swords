@@ -128,7 +128,7 @@ export default function Header() {
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button key="1" component="a" href="/swords">
+                    <ListItem button key="1">
                         <ListItemIcon>
                             <InboxIcon />
                         </ListItemIcon>

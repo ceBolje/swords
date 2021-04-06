@@ -1,8 +1,7 @@
-import { Container, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { Container } from '@material-ui/core';
 import { Footer } from 'components/Footer';
 import Header from 'components/Header';
-import { Head } from 'next/document';
-import React from 'react';
 
 interface IProps {
     pageTitle?: string;
@@ -10,20 +9,12 @@ interface IProps {
     withContainer?: boolean;
 }
 
-const useStyles = makeStyles({
-    cContainer: {
-        marginTop: '100px',
-    },
-});
-
 export const DefaultPageLayout: React.FC<IProps> = ({
     pageTitle,
     children,
     pageClassName,
     withContainer,
 }) => {
-    const classes = useStyles();
-
     return (
         <>
             <Container maxWidth="lg">
