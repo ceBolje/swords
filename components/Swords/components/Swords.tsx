@@ -37,7 +37,7 @@ export const Swords = () => {
     const classes = useStyles();
 
     return (
-        <Box mt={5} className={classes.cContainer}>
+        <Box mt={6} className={classes.cContainer}>
             <Typography color="secondary" variant="h3" noWrap>
                 {selected.w}
             </Typography>

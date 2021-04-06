@@ -80,62 +80,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Header() {
     const classes = useStyles();
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
 
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar
-                position="static"
-                className={clsx(classes.appBar, {
-                    [classes.appBarShift]: open,
-                })}>
+            <AppBar position="fixed">
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}>
-                        <MenuIcon />
-                    </IconButton>
                     <Typography variant="h6" noWrap>
                         sWords
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Drawer
-                className={classes.drawer}
-                variant="persistent"
-                anchor="left"
-                open={open}
-                classes={{
-                    paper: classes.drawerPaper,
-                }}>
-                <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
-                <Divider />
-                <List>
-                    <ListItem button key="1">
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="3000" />
-                    </ListItem>
-                </List>
-            </Drawer>
         </div>
     );
 }
