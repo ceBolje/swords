@@ -58,6 +58,11 @@ export const useSwords = () => {
 
     const [selected, setCase] = useState(initCase);
     const [score, setScore] = useState(initScore);
+    const [isPrompt, setPrompt] = useState<boolean>(false);
+
+    const handlePrompt = (): void => {
+        setPrompt(!isPrompt);
+    };
 
     const updateWord = (isCorrect: boolean) => {
         if (isCorrect) {
@@ -135,5 +140,7 @@ export const useSwords = () => {
         score,
         selected,
         handleClick,
+        isPrompt,
+        handlePrompt,
     };
 };

@@ -33,7 +33,7 @@ const useStyles = makeStyles({
 });
 
 export const Swords = () => {
-    const { score, selected, handleClick } = useSwords();
+    const { score, selected, handleClick, isPrompt, handlePrompt } = useSwords();
     const classes = useStyles();
 
     return (
@@ -41,9 +41,11 @@ export const Swords = () => {
             <Typography color="secondary" variant="h3" noWrap>
                 {selected.w}
             </Typography>
-            <Typography color="primary" variant="h6" noWrap>
-                [ {selected.e} ] en
-            </Typography>
+            {isPrompt && (
+                <Typography color="primary" variant="h6" noWrap>
+                    [ {selected.e} ]
+                </Typography>
+            )}
             <Box mt={7}>
                 {selected.v.map((key, i) => (
                     <Button
@@ -67,6 +69,10 @@ export const Swords = () => {
                 <span className={classes.tGreen}>{score.correct}</span> /
                 <span className={classes.tRed}>{score.error}</span> /
                 <span className="">{score.percent}%</span>
+            </Box>
+            <Box mt={2}>
+                <label>Show prompt</label>
+                <input type="checkbox" checked={isPrompt} onClick={handlePrompt} />
             </Box>
         </Box>
     );
