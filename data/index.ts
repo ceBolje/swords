@@ -1,11 +1,10 @@
 const data = [
-    ['a', 'and', 'и'],
     ['jet', 'go', 'ехать'],
+    ['a', 'and', 'и'],
     ['jít', 'go', 'идти'],
     ['snít', 'dream', 'мечтать'],
     ['oblíbený', 'favorite', 'любимый'],
     ['bystrý', 'smart', 'сообразительный'],
-
     ['opustit', 'abandon', 'покидать'],
     ['schopnost', 'ability', 'способность'],
     ['schopný', 'able', 'способный'],
